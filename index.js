@@ -5,11 +5,11 @@ const db = []
 
 app.use(express.json())
 
-app.get("/", (req,res) => {
+app.get("/api/pizzas", (req,res) => {
     res.send(db)
 })
 
-app.post("/", (req,res) =>{
+app.post("/api/pizzas", (req,res) =>{
     const dados = {
         nome: req.body.nome,
         valor: req.body.valor
@@ -18,12 +18,12 @@ app.post("/", (req,res) =>{
     res.status(201).send(dados)
 })
 
-app.get("/:id", (req,res) =>{
+app.get("/api/pizzas/:id", (req,res) =>{
     let id =  req.params.id - 1
     res.status(200).send(db[id])
 })
 
-app.put("/:id", (req,res) =>{
+app.put("/api/pizzas/:id", (req,res) =>{
     let id =  req.params.id - 1
     const dados = {
         nome: req.body.nome,
@@ -33,10 +33,10 @@ app.put("/:id", (req,res) =>{
     res.status(200).send(db[id])
 })
 
-app.delete("/:id", (req,res) =>{
+app.delete("/api/pizzas/:id", (req,res) =>{
     let id =  req.params.id - 1
     db.splice(id,1)
-    res.status(200).send("Objeto deletado com sucesso")
+    res.status(200).send("A pizza foi deletada com sucesso")
 })
 
 
