@@ -26,6 +26,10 @@ const db = [
 
 app.use(express.json())
 
+app.get("/api/pizzas/", (req,res) =>{
+    res.status(200).send(db)
+})
+
 app.post("/api/pizzas", (req,res) =>{
     const dados = {
         nome: req.body.nome,
