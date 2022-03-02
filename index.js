@@ -1,7 +1,22 @@
 const express = require("express")
 const app = express();
 
-const db = []
+const db = [
+    {
+     "nome": "Quatro queijos",
+     "valor": 50
+    },
+
+    {
+     "nome":"Margherita",
+     "valor": 40
+    },
+
+    {
+     "nome":"Lombo com abacaxi",
+     "valor": 35 
+    }
+]
 
 app.use(express.json())
 
