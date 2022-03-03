@@ -7,6 +7,7 @@ module.exports = app =>{
     
     app.post("/api/pizzas", (req,res) =>{
         const dados = {
+            id: req.body.id,
             nome: req.body.nome,
             valor: req.body.valor,
             img: req.body.img,
@@ -24,6 +25,7 @@ module.exports = app =>{
     app.put("/api/pizzas/:id", (req,res) =>{
         let id =  req.params.id - 1
         const dados = {
+            id: req.body.id,
             nome: req.body.nome,
             valor: req.body.valor,
             img: req.body.img,
