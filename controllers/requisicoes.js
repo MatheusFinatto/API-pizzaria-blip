@@ -1,4 +1,7 @@
+const { default: axios } = require('axios')
 const db = require('../database/db')
+const axiosFunctions = require("../config/customAxios")
+
 
 module.exports = app =>{
 
@@ -46,6 +49,14 @@ module.exports = app =>{
         db.splice(id,1)
         res.status(200).send("A pizza foi deletada com sucesso")
     })
+
+    app.get("/api/cep/:cep", (req, res) => {
+        let cep = req.params;   
+        axiosFunctions.getAddress(cep.cep).then((value) => {
+            let resposta = axiosFunctions.filtro(value)    
+            res.send(resposta);
+        }).catch((err) => console.log("Erro" + err));
+    });
 
 }
 
