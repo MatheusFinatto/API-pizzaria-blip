@@ -1,11 +1,9 @@
 const db = require('../database/db')
 
-const customAxios = require("../config/customAxios")
-customAxios()
-
 module.exports = app =>{
+
     app.get("/", (req,res) =>{
-        res.send("Para acessar a API de pizzas, use /api/pizzas/. Para acessar a API de CEP, use /api/cep/.")
+        res.send("Para acessar a API de pizzas, use /api/pizzas/. Para acessar a API de CEP, use /api/cep/:cep.")
     })
 
     app.get("/api/pizzas/", (req,res) =>{
@@ -49,16 +47,5 @@ module.exports = app =>{
         res.status(200).send("A pizza foi deletada com sucesso")
     })
 
-    app.get("/api/cep/:cep", (req, res) => {
-        let cep = req.params;
-        getAddress(cep.cep)
-        
-        .then((value) => {
-            let resposta = filterData(value);
-            res.send(resposta);
-        })
-        
-        .catch((err) => console.log("Erro" + err));
-    });
 }
 

@@ -18,7 +18,7 @@ function filtro(data) {
 }
 
 app.get("/api/cep/:cep", (req, res) => {
-    let cep = req.params;
+    let cep = req.params;   
     getAddress(cep.cep).then((value) => {
         let resposta = filtro(value);
         res.send(resposta);
