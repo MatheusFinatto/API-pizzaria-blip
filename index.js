@@ -11,7 +11,7 @@ async function getAddress(cep) {
 function filtro(data) {
     return {
         cep: data.cep,
-        rua: data.logradouro
+        rua: data.logradouro,
         bairro: data.bairro,
         cidade: data.localidade,
         estado: data.uf
