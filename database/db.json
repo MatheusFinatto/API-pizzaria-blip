@@ -1,5 +1,4 @@
-
-const db = [
+[
     {
      "id": 1,   
      "nome": "Quatro queijos",
@@ -24,5 +23,3 @@ const db = [
      "slogan":"Uma blasfêmia, mas há quem goste."      
     }
 ]
-
-module.exports = db;

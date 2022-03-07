@@ -16,5 +16,4 @@ O chatbot citado pode ser acessado pelo seguinte link: https://matheus-fenando-f
 Já a API, pode ser acessada pela URL:
 https://pizzaria-matheus-finatto.herokuapp.com/
 
-(Obs: a API pode vir a estar offline, pela utilização do plano gratuito do Heroku.)
 
