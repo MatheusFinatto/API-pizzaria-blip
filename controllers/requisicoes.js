@@ -1,9 +1,9 @@
 const { default: axios } = require('axios')
 const axiosFunctions = require("../config/customAxios")
-const dbConfigs = require('../database/dbConfigs')
+const dbConfigs = require('../config/customDatabase')
 
 
-module.exports = app =>{
+module.exports = app => {
 
     app.get("/", (req,res) =>{
         res.send("Para acessar a API de pizzas, use /api/pizzas/. Para acessar a API de CEP, use /api/cep/:cep.")
@@ -56,19 +56,3 @@ module.exports = app =>{
     });
 
 }
-
-
-/*
-
-app.get("/pizzas", async (req, res) => {
-    let result = await db.GetAllPizzas();
-    res.json(result);
-});
-
-app.post("/cadastrar-pizza", (req, res) => {
-    var pizza = req.body;
-    db.AddPizza(pizza);
-    res.end();
-});
-
-*/
