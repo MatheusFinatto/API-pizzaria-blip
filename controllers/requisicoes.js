@@ -1,58 +1,52 @@
-const { default: axios } = require('axios')
-const axiosFunctions = require("../config/customAxios")
-const dbConfigs = require('../config/customDatabase')
-
+const customAxios = require("../config/customAxios")
+const { changePizza } = require("../database/db")
+const db = require("../database/db")
 
 module.exports = app => {
 
-    app.get("/", (req,res) =>{
+    app.get("/", (req, res) => {
         res.send("Para acessar a API de pizzas, use /api/pizzas/. Para acessar a API de CEP, use /api/cep/:cep.")
     })
 
     app.get("/api/pizzas", async (req, res) => {
-        let result = await dbConfigs.getPizzas();
-        res.json(result);
+        let pizzas = await db.getPizzas();
+        res.json(pizzas);
     });
-    
-    app.post("/api/pizzas", (req,res) =>{
-        let pizza = req.body;
-        dbConfigs.addPizza(pizza);
-        res.end();
-    })
-    
-    // app.get("/api/pizzas/:id", (req,res) =>{
-    //     let id =  req.params.id - 1
-    //     res.send(db[id])
-    // })
-    
-    // app.put("/api/pizzas/:id", (req,res) =>{
-    //     let id =  req.params.id - 1
-    //     const dados = {
-    //         id: req.body.id,
-    //         nome: req.body.nome,
-    //         valor: req.body.valor,
-    //         img: req.body.img,
-    //         slogan: req.body.slogan
 
-    //     }
-    //     db[id] = dados
-    //     res.status(200).send(db[id])
-    // })
-    
-    // app.delete("/api/pizzas/:id", (req,res) =>{
-    //     let id =  req.params.id - 1
-    //     db.splice(id,1)
-    //     res.status(200).send("A pizza foi deletada com sucesso")
-    // })
+    app.get("/api/pizzas/:id", async (req, res) => {
+        let id =  req.params.id - 1
+        let pizzas = await db.getPizzaById(id);
+        res.json(pizzas);
+    });
+
+    app.post("/api/pizzas", async (req, res) => {
+        let pizza = req.body;
+        await db.addPizza(pizza);
+        let pizzas = await db.getPizzas();
+        res.status(200).send(pizzas)
+    })
+
+    app.put("/api/pizzas/:id", async (req, res) => {
+        let id =  req.params.id - 1
+        await db.changePizza(req.body, id)
+        let pizzas = await db.getPizzas();
+        res.status(200).send(pizzas)
+    })
+
+    app.delete("/api/pizzas/:id", async (req,res) =>{
+        let id =  req.params.id - 1
+        await db.deletePizza(id)
+        let pizzas = await db.getPizzas();
+        res.status(201).send(pizzas)
+    })
 
     app.get("/api/cep/:cep", (req, res) => {
-        let cep = req.params;   
-        axiosFunctions.getAddress(cep.cep)
-        .then((value) => {
-            let resposta = axiosFunctions.filtro(value)    
-            res.send(resposta);
-        })
-        .catch((err) => console.log("Erro" + err));
+        let cep = req.params;
+        getAddress(cep.cep)
+            .then((value) => {
+                let resposta = filtro(value)
+                res.send(resposta);
+            })
+            .catch((err) => console.log("Erro" + err));
     });
-
 }
