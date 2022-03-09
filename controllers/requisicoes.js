@@ -5,7 +5,7 @@ const db = require("../database/db")
 module.exports = app => {
 
     app.get("/", (req, res) => {
-        res.send("Para acessar a API de pizzas, use /api/pizzas/. Para acessar a API de CEP, use /api/cep/:cep.")
+        res.send("Para acessar a API de pizzas, use /api/pizzas/. Para acessar a API de CEP, use /api/cep/:cep. Para mais informações, acesse /instrucoes")
     })
 
     app.get("/api/pizzas", async (req, res) => {

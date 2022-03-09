@@ -1,4 +1,3 @@
-const fs = require("fs");
 const path = require("path");
 const dbFile = (path.join(__dirname, "db.json"))
 const { read, write } = require("../helpers/file")
@@ -9,10 +8,11 @@ module.exports = {
         return JSON.parse(pizzas);
     },
 
-    // async getPizzaById(i) {
-    //     let pizzas = await read(dbFile);
-    //     return JSON.parse(pizzas[i]);
-    // },
+    async getPizzaById(i) {
+        const pizzas = await this.getPizzas();
+        let pizza = pizzas[i];
+        return pizza;
+    },
 
     async addPizza(pizza) {
         let pizzas = await this.getPizzas();
