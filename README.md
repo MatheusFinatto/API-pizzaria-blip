@@ -1,10 +1,10 @@
 
+
 A presente API possui duas funções:
 
 1. A primeira função, e principal, é acessar (via os métodos GET, POST, PUT e DELETE) um array de objetos que simula uma base de dados contendo um cardápio com três sabores de pizza.
 
 Para acessar esta funcionalidade, deve-se usar o caminho /api/pizzas/ para os métodos GET e POST e para os métodos PUT e DELETE (ou para acessar especificamente um dos elementos do array com GET) o caminho /api/pizzas/:id. 
-
 
 2. A segunda função é acessar, via axios, a api "Viacep", a qual retorna através de um método GET algumas informações sobre o endereço do CEP passado como parâmetro na URL.
 
@@ -15,5 +15,4 @@ O chatbot citado pode ser acessado pelo seguinte link: https://matheus-fenando-f
 
 Já a API, pode ser acessada pela URL:
 https://pizzaria-matheus-finatto.herokuapp.com/
-
 
