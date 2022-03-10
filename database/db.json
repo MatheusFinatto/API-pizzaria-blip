@@ -1,1 +1,23 @@
-[{"id":1,"nome":"Quatro queijos","valor":50,"img":"https://www.comidaereceitas.com.br/img/sizeswp/1200x675/2007/12/Pizza_quatro_queijossss.jpg","slogan":"A mais vendida!"},{"id":2,"nome":"Margherita","valor":40,"img":"https://receitinhas.s3-sa-east-1.amazonaws.com/wp-content/uploads/2017/06/iStock-504427632-848x477.jpeg","slogan":"Uma blasfêmia, mas há quem goste."},{"id":3,"nome":"Lombo com abacaxi","valor":35,"img":"https://receitinhas.s3-sa-east-1.amazonaws.com/wp-content/uploads/2017/06/iStock-504427632-848x477.jpeg","slogan":"Uma blasfêmia, mas há quem goste."}]
+[
+    {
+        "id": 1,
+        "nome": "Quatro queijos",
+        "valor": 50,
+        "img": "https://www.comidaereceitas.com.br/img/sizeswp/1200x675/2007/12/Pizza_quatro_queijossss.jpg",
+        "slogan": "A mais vendida!"
+    },
+    {
+        "id": 2,
+        "nome": "Margherita",
+        "valor": 40,
+        "img": "https://violifefoods.com/wp-content/uploads/2021/01/pizza-margherita.jpg",
+        "slogan": "Uma clássico atemporal."
+    },
+    {
+        "id": 3,
+        "nome": "Lombo com abacaxi",
+        "valor": 35,
+        "img": "https://receitinhas.s3-sa-east-1.amazonaws.com/wp-content/uploads/2017/06/iStock-504427632-848x477.jpeg",
+        "slogan": "Uma blasfêmia, mas há quem goste."
+    }
+]
