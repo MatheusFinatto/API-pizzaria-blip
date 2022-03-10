@@ -1,28 +1,35 @@
+const path = require("path");
+const dbFile = (path.join(__dirname, "db.json"))
+const { read, write } = require("../helpers/file")
 
-const db = [
-    {
-     "id": 1,   
-     "nome": "Quatro queijos",
-     "valor": 50,
-     "img": "https://www.comidaereceitas.com.br/img/sizeswp/1200x675/2007/12/Pizza_quatro_queijossss.jpg",
-     "slogan":"A mais vendida!"
+module.exports = {
+    async getPizzas() {
+        let pizzas = await read(dbFile);
+        return JSON.parse(pizzas);
     },
 
-    {
-     "id": 2,  
-     "nome":"Margherita",
-     "valor": 40,
-     "img":"https://i0.wp.com/descobrindoasicilia.com/wp-content/uploads/2020/11/amirali-mirhashemian-zTxiTnTag78-unsplash.jpg?ssl=1",
-     "slogan":"Um clássico atemporal!"
+    async getPizzaById(i) {
+        const pizzas = await this.getPizzas();
+        let pizza = pizzas[i];
+        return pizza;
     },
 
-    {
-     "id":3,
-     "nome":"Lombo com abacaxi",
-     "valor": 35,
-     "img":"https://receitinhas.s3-sa-east-1.amazonaws.com/wp-content/uploads/2017/06/iStock-504427632-848x477.jpeg",
-     "slogan":"Uma blasfêmia, mas há quem goste."      
+    async addPizza(pizza) {
+        let pizzas = await this.getPizzas();
+        pizza.id = pizzas.length + 1
+        pizzas.push(pizza);
+        await write(dbFile, JSON.stringify(pizzas));
+    },
+
+    async changePizza(pizza, id) {
+        const pizzas = await this.getPizzas();
+        pizzas.splice(id, 1, pizza);
+        await write(dbFile, JSON.stringify(pizzas));
+    },
+
+    async deletePizza(id) {
+        const pizzas = await this.getPizzas();
+        pizzas.splice(id, 1);
+        await write(dbFile, JSON.stringify(pizzas));
     }
-]
-
-module.exports = db;
+};
