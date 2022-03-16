@@ -1,5 +1,6 @@
 const customAxios = require("../config/customAxios")
 const db = require("../database/db")
+const {getPedidos, getPedidosCliente} = require("../database/pedidosDb")
 
 module.exports = app => {
 
@@ -50,4 +51,28 @@ module.exports = app => {
             })
             .catch((err) => console.log("Erro" + err));
     });
+
+    //requisição de historico
+    app.get("/api/pedidos", async (req, res) => {
+        let pedidos = await getPedidos();
+        res.status(200).json(pedidos);
+    })
+
+    app.get("/api/pedidos/:cpf", async (req, res) => {
+        let cpf = req.params;
+        let pedidos = await getPedidosCliente(cpf);
+        res.status(200).json(pedidos);
+    })
+
+    // app.get("/api/pedidos", async (req, res) => {
+    //     let pedidos = await pedidosDb.getPedidos();
+    //     res.status(200).json(pedidos);
+    // })
+
+    // app.post("/api/pedidos", async (req, res) => {
+    //     let pedido = req.body;
+    //     await pedidosDb.addPedido(pedido);
+    //     let pedidos = await pedidosDb.getPedidos();
+    //     res.status(201).send(pedidos)
+    // })
 }

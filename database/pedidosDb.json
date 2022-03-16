@@ -1,0 +1,28 @@
+[
+    {
+        "id": 1,
+        "nome": "Matheus",
+        "cpf": "12345678910",
+        "valor": 50,
+        "pedido": "1 pizza de quatro queijos",
+        "metodoDeRetirada": "entrega"
+
+    },
+    {
+        "id": 2,
+        "nome": "Matheus",
+        "cpf": "02353092063",
+        "valor": 50,
+        "pedido": "1 pizza de quatro queijos",
+        "metodoDeRetirada": "entrega"
+
+    },
+    {
+        "id": 3,
+        "nome": "Matheus",
+        "cpf": "8868182848",
+        "valor": 50,
+        "pedido": "1 pizza de quatro queijos",
+        "metodoDeRetirada": "local"
+    }
+]
