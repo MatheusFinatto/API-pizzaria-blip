@@ -1,3 +1,4 @@
+const res = require("express/lib/response");
 const path = require("path");
 const dbFile = (path.join(__dirname, "pedidosDb.json"))
 const { read, write } = require("../helpers/file")
@@ -38,9 +39,8 @@ async function addPedido(pedido, cpf) {
         }
     }
 
-    console.log(pedidos)
 
-
+    return pedidos;
     // await write(dbFile, JSON.stringify(pedidos));
 }
 

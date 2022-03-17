@@ -5,28 +5,28 @@
             {
                 "nome": "Matheus",
                 "valor": 50,
-                "pedido": "1 pizza de quatro queijos",
+                "pedido": "1 pizza de quatro queijosa",
                 "metodoDeRetirada": "entrega",
                 "id": 1
             },
             {
                 "nome": "Matheus",
                 "valor": 50,
-                "pedido": "1 pizza de quatro queijos",
+                "pedido": "1 pizza de quatro queijose",
                 "metodoDeRetirada": "entrega",
                 "id": 2
             },
             {
                 "nome": "Matheus ultimo",
                 "valor": 50,
-                "pedido": "1 pizza de quatro queijos",
+                "pedido": "1 pizza de quatro queijosf",
                 "metodoDeRetirada": "local",
                 "id": 3
             },
             {
                 "nome": "Matheus",
                 "valor": 40,
-                "pedido": "1 pizza de quatro queijos",
+                "pedido": "1 pizza de quatro queijosg",
                 "metodoDeRetirada": "local",
                 "id": 4
             }
@@ -45,21 +45,21 @@
             {
                 "nome": "Matheus",
                 "valor": 50,
-                "pedido": "1 pizza de quatro queijos",
+                "pedido": "1 pizza de quatro queijosg",
                 "metodoDeRetirada": "entrega",
                 "id": 2
             },
             {
                 "nome": "Matheus ultimo",
                 "valor": 50,
-                "pedido": "1 pizza de quatro queijos",
+                "pedido": "1 pizza de quatro queijosf",
                 "metodoDeRetirada": "local",
                 "id": 3
             },
             {
                 "nome": "Matheus",
                 "valor": 40,
-                "pedido": "1 pizza de quatro queijos",
+                "pedido": "1 pizza de quatro queijose",
                 "metodoDeRetirada": "local",
                 "id": 4
             }
@@ -71,28 +71,28 @@
             {
                 "nome": "Matheus",
                 "valor": 50,
-                "pedido": "1 pizza de quatro queijos",
+                "pedido": "1 pizza de quatro queijosa",
                 "metodoDeRetirada": "entrega",
                 "id": 1
             },
             {
                 "nome": "Matheus",
                 "valor": 50,
-                "pedido": "1 pizza de quatro queijos",
+                "pedido": "1 pizza de quatro queijosb",
                 "metodoDeRetirada": "entrega",
                 "id": 2
             },
             {
                 "nome": "Matheus ultimo",
                 "valor": 50,
-                "pedido": "1 pizza de quatro queijos",
+                "pedido": "1 pizza de quatro queijosc",
                 "metodoDeRetirada": "local",
                 "id": 3
             },
             {
                 "nome": "Matheus",
                 "valor": 40,
-                "pedido": "1 pizza de quatro queijos",
+                "pedido": "1 pizza de quatro queijosd",
                 "metodoDeRetirada": "local",
                 "id": 4
             }

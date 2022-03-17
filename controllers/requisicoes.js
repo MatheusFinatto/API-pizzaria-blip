@@ -64,7 +64,7 @@ module.exports = app => {
     app.get("/api/pedidos/:cpf", async (req, res) => {
         let cpf = req.params.cpf;
         let pedidos = await pedidosDb.getPedidosCliente(cpf)
-        res.status(200).json(pedidos)        
+        res.status(200).json(pedidos);        
     })
 
     app.get("/api/pedidos/ultimo/:cpf", async (req, res) => {
@@ -76,8 +76,10 @@ module.exports = app => {
     app.post("/api/pedidos/:cpf", async (req, res) => {
         let cpf = req.params.cpf;
         let pedido = req.body;
-        await pedidosDb.addPedido(pedido,cpf);
+        let pedidos = await pedidosDb.addPedido(pedido,cpf);
         // let AllPedidos = await pedidosDb.getPedidos();
         // res.status(201).send(AllPedidos)
+        res.send(pedidos)
+
     })
 }
