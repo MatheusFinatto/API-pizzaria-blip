@@ -45,8 +45,8 @@ module.exports = app => {
     //requisição de cep
 
     app.get("/api/cep/:cep", (req, res) => {
-        let cep = req.params;
-        customAxios.getAddress(cep.cep)
+        let cep = req.params.cep;
+        customAxios.getAddress(cep)
             .then((value) => {
                 let resposta = customAxios.filtro(value)
                 res.send(resposta);
@@ -62,21 +62,22 @@ module.exports = app => {
     })
 
     app.get("/api/pedidos/:cpf", async (req, res) => {
-        let cpf = req.params;
+        let cpf = req.params.cpf;
         let pedidos = await pedidosDb.getPedidosCliente(cpf)
         res.status(200).json(pedidos)        
     })
 
-    app.get("/api/ultimo-pedido/:cpf", async (req, res) => {
-        let cpf = req.params;
+    app.get("/api/pedidos/ultimo/:cpf", async (req, res) => {
+        let cpf = req.params.cpf;
         let pedido = await pedidosDb.getUltimoPedidoDoCliente(cpf);
         res.status(200).json(pedido);
     })
 
-    app.post("/api/pedidos", async (req, res) => {
+    app.post("/api/pedidos/:cpf", async (req, res) => {
+        let cpf = req.params.cpf;
         let pedido = req.body;
-        await pedidosDb.addPedido(pedido);
-        let pedidos = await pedidosDb.getPedidos();
-        res.status(201).send(pedidos)
+        await pedidosDb.addPedido(pedido,cpf);
+        // let AllPedidos = await pedidosDb.getPedidos();
+        // res.status(201).send(AllPedidos)
     })
 }

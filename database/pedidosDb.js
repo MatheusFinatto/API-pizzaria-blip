@@ -8,26 +8,40 @@ async function getPedidos() {
 }
 
 async function getPedidosCliente(cpf) {
-    const pedidos = await getPedidos();
+    const pedidos = await getPedidos()
+
     for (let i = 0; i < pedidos.length; i++) {
-        if (cpf.cpf == pedidos[i].cpf) {
-            let pedidosDoCliente = pedidos[i];
-            return pedidosDoCliente;
+        if (cpf == pedidos[i].cpf) {
+            return pedidos[i];
         }
     }
+
     return "CPF não encontrado";
 }
 
 async function getUltimoPedidoDoCliente(cpf) {
     const pedidosDoCliente = await getPedidosCliente(cpf);
-    let ultimoPedido = pedidosDoCliente.pedidos[pedidosDoCliente.pedidos.length -1];
+    let ultimoPedido = pedidosDoCliente.pedidos[pedidosDoCliente.pedidos.length - 1];
     return ultimoPedido;
 }
 
 async function addPedido(pedido, cpf) {
-    let pedidos = await getPedidosCliente(cpf);
-    pedidos.push(pedido);
-    await write(dbFile, JSON.stringify(pedidos));
+    let pedidosDoCliente = await getPedidosCliente(cpf);
+    pedido.id = pedidosDoCliente.pedidos.length
+    pedidosDoCliente.pedidos.push(pedido)
+
+    const pedidos = await getPedidos()
+
+    for (let i = 0; i < pedidos.length; i++) {
+        if (cpf == pedidos[i].cpf) {
+            pedidos[i] = pedidosDoCliente.pedidos;
+        }
+    }
+
+    console.log(pedidos)
+
+
+    // await write(dbFile, JSON.stringify(pedidos));
 }
 
-module.exports = { getPedidos, getPedidosCliente, getUltimoPedidoDoCliente, addPedido };
+module.exports = { getPedidos, getPedidosCliente, getUltimoPedidoDoCliente, addPedido};
