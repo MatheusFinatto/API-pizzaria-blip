@@ -1,13 +1,14 @@
 const customAxios = require("../config/customAxios")
 const db = require("../database/db")
 const pedidosDb = require("../database/pedidosDb")
+const path = require("path")
 
 module.exports = app => {
 
     //requisições de pizza
 
     app.get("/", (req, res) => {
-        res.status(200).send("Para acessar a API de pizzas, use /api/pizzas/. \nPara acessar a API de CEP, use /api/cep/:cep. \nPara acessar o historico de pedidos, use /api/pedidos")
+        res.sendFile(path.join(__dirname, '/index.html'));
     })
 
     app.get("/api/pizzas", async (req, res) => {
@@ -43,6 +44,7 @@ module.exports = app => {
     })
 
     //requisição de cep
+    
 
     app.get("/api/cep/:cep", (req, res) => {
         let cep = req.params.cep;
