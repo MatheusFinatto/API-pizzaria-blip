@@ -27,21 +27,17 @@ async function getUltimoPedidoDoCliente(cpf) {
 }
 
 async function addPedido(pedido, cpf) {
-    let pedidosDoCliente = await getPedidosCliente(cpf);
-    pedido.id = pedidosDoCliente.pedidos.length
-    pedidosDoCliente.pedidos.push(pedido)
-
-    const pedidos = await getPedidos()
-
-    for (let i = 0; i < pedidos.length; i++) {
-        if (cpf == pedidos[i].cpf) {
-            pedidos[i] = pedidosDoCliente.pedidos;
+    const pedidosDoCliente = await getPedidosCliente(cpf);
+    pedido.id = pedidosDoCliente.pedidos.length;
+    pedidosDoCliente.pedidos.push(pedido);
+    const AllPedidos = await getPedidos();
+    for (let i = 0; i < AllPedidos.length; i++) {
+        if (cpf == AllPedidos[i].cpf) {
+            AllPedidos[i] = pedidosDoCliente.pedidos;
         }
     }
-
-
-    return pedidos;
-    // await write(dbFile, JSON.stringify(pedidos));
+    await write(dbFile, JSON.stringify(AllPedidos));
+    return AllPedidos;
 }
 
-module.exports = { getPedidos, getPedidosCliente, getUltimoPedidoDoCliente, addPedido};
+module.exports = { getPedidos, getPedidosCliente, getUltimoPedidoDoCliente, addPedido };

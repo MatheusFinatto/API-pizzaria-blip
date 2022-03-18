@@ -77,9 +77,6 @@ module.exports = app => {
         let cpf = req.params.cpf;
         let pedido = req.body;
         let pedidos = await pedidosDb.addPedido(pedido,cpf);
-        // let AllPedidos = await pedidosDb.getPedidos();
-        // res.status(201).send(AllPedidos)
-        res.send(pedidos)
-
+        res.status(201).send(pedidos)
     })
 }
