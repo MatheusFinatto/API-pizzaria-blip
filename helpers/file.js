@@ -2,7 +2,7 @@ const fs = require("fs")
 
 async function read(path) {
     return new Promise((resolve, reject) => {
-        fs.readFile(path,{encoding: "utf-8"}, (err, data) => {
+        fs.readFile(path, { encoding: "utf-8" }, (err, data) => {
             resolve(data)
         })
     })
@@ -17,4 +17,4 @@ async function write(path, data) {
     })
 }
 
-module.exports = {write, read}
+module.exports = { write, read }
