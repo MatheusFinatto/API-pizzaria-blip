@@ -9,11 +9,11 @@ async function getPedidos() {
 }
 
 async function getPedidosCliente(cpf) {
-    const pedidos = await getPedidos()
+    const AllPedidos = await getPedidos()
 
-    for (let i = 0; i < pedidos.length; i++) {
-        if (cpf == pedidos[i].cpf) {
-            return pedidos[i];
+    for (let i = 0; i < AllPedidos.length; i++) {
+        if (cpf == AllPedidos[i].cpf) {
+            return AllPedidos[i];
         }
     }
 
@@ -28,12 +28,12 @@ async function getUltimoPedidoDoCliente(cpf) {
 
 async function addPedido(pedido, cpf) {
     const pedidosDoCliente = await getPedidosCliente(cpf);
-    pedido.id = pedidosDoCliente.pedidos.length;
+    pedido.id = pedidosDoCliente.pedidos.length + 1;
     pedidosDoCliente.pedidos.push(pedido);
     const AllPedidos = await getPedidos();
     for (let i = 0; i < AllPedidos.length; i++) {
         if (cpf == AllPedidos[i].cpf) {
-            AllPedidos[i] = pedidosDoCliente.pedidos;
+            AllPedidos[i] = pedidosDoCliente;
         }
     }
     await write(dbFile, JSON.stringify(AllPedidos));
