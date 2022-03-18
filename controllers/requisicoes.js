@@ -7,7 +7,7 @@ module.exports = app => {
     //requisições de pizza
 
     app.get("/", (req, res) => {
-        res.status(200).send("Para acessar a API de pizzas, use /api/pizzas/. Para acessar a API de CEP, use /api/cep/:cep. Para mais informações, acesse /instrucoes")
+        res.status(200).send("Para acessar a API de pizzas, use /api/pizzas/. \nPara acessar a API de CEP, use /api/cep/:cep. \nPara acessar o historico de pedidos, use /api/pedidos")
     })
 
     app.get("/api/pizzas", async (req, res) => {
