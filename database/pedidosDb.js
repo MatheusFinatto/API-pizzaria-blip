@@ -3,6 +3,14 @@ const path = require("path");
 const dbFile = (path.join(__dirname, "pedidosDb.json"))
 const { read, write } = require("../helpers/file")
 
+
+// async function filterPedidosCliente(){
+//     for (let i = 0; i < pedidosCliente.pedidos.length; i++) {
+//         console.log(pedidosCliente.pedidos[i].pedido)
+//         }
+//     }
+
+
 async function getPedidos() {
     let pedido = await read(dbFile);
     return JSON.parse(pedido);
@@ -16,6 +24,8 @@ async function getPedidosCliente(cpf) {
             return AllPedidos[i];
         }
     }
+
+
 
     return "CPF não encontrado";
 }
@@ -40,4 +50,4 @@ async function addPedido(pedido, cpf) {
     return AllPedidos;
 }
 
-module.exports = { getPedidos, getPedidosCliente, getUltimoPedidoDoCliente, addPedido };
+module.exports = { getPedidos, getPedidosCliente, getUltimoPedidoDoCliente, addPedido};

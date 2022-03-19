@@ -9,6 +9,7 @@ module.exports = app => {
 
     app.get("/", (req, res) => {
         res.sendFile(path.join(__dirname, '../index.html'));
+
     })
 
     app.get("/api/pizzas", async (req, res) => {
